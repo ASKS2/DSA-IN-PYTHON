@@ -28,3 +28,12 @@ class student:
 #Inheritance is the process by which one class takes 
 # on the attributes and methods of another class.
 
+class parent:
+    def __init__(self, name):
+        self.name = name
+
+class child(parent):
+    def show(self):
+        print(f"Child's parent name is: {self.name}")
+child1 = child("sunita")
+child1.show()
