@@ -35,5 +35,6 @@ class parent:
 class child(parent):
     def show(self):
         print(f"Child's parent name is: {self.name}")
-child1 = child("sunita")
+child1 = child("sun")
 child1.show()
+
