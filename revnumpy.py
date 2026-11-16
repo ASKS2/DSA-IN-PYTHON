@@ -66,3 +66,17 @@ a[a % 20 == 0]           # [20 40]
 
 m = np.arange(1, 13).reshape(3, 4)
 m[m % 2 == 0]            # [ 2  4  6  8 10 12]   result is always 1D
+
+# Common mistakes
+# 1.  Confusing shapes (3,), (1, 3) and (3, 1).
+# 2.  Forgetting that stop is excluded in arange and in slices.
+# 3.  Editing a slice and unexpectedly changing the original (views). Use .copy().
+# 4.  Writing and / or instead of & / | in boolean masks, or leaving out the brackets.
+# 5.  Reshaping to a size that does not match the element count.
+# 6.  Writing np.zeros(3, 4) instead of np.zeros((3, 4)).
+# 7.  Expecting astype(int) to round. It truncates.
+# 8.  Expecting m[[0, 2], [1, 3]] to select a grid. It pairs the lists.
+# 9.  Integer overflow in small dtypes such as int8 and uint8.
+# 10.  Using y = x and thinking it copies the array.
+# 11.  Assuming boolean indexing on a 2D array keeps the 2D shape. It returns 1D.
+# 12.  Mixing up axis=0 (down the rows) and axis=1 (across the columns).
