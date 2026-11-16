@@ -28,3 +28,41 @@ np.round(f).astype(int)  # [ 2  3 -3]   round first if you want rounding
 
 s = np.array(['1', '2', '3'])
 s.astype(int)            # [1 2 3]      strings to numbers
+
+
+a = np.array([10, 20, 30, 40, 50])
+#  index:       0   1   2   3   4
+#  negative:  -5  -4  -3  -2  -1
+
+a[0]        # 10   first
+a[2]        # 30
+a[-1]       # 50   last
+a[-2]       # 40   second from last
+a[5]        # IndexError: index 5 is out of bounds for axis 0 with size 5
+
+m = np.arange(1, 13).reshape(3, 4)
+# [[ 1  2  3  4]
+#  [ 5  6  7  8]
+#  [ 9 10 11 12]]
+
+m[1, 2]      # 7      row 1, column 2
+m[0, 0]      # 1
+m[-1, -1]    # 12     last row, last column
+m[2, 0]      # 9
+m[0]         # [1 2 3 4]   a whole row (shape (4,))
+m[-1]        # [ 9 10 11 12]
+m[1][2]      # 7      works, but m[1, 2] is cleaner and faster
+
+a = np.array([10, 20, 30, 40, 50])
+mask = a > 25
+mask            # [False False  True  True  True]
+a[mask]         # [30 40 50]
+a[a > 25]       # [30 40 50]   same, in one line
+
+a[(a > 15) & (a < 45)]   # [20 30 40]   AND
+a[(a < 15) | (a > 45)]   # [10 50]      OR
+a[~(a > 25)]             # [10 20]      NOT
+a[a % 20 == 0]           # [20 40]
+
+m = np.arange(1, 13).reshape(3, 4)
+m[m % 2 == 0]            # [ 2  4  6  8 10 12]   result is always 1D
