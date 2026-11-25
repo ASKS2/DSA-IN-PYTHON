@@ -18,3 +18,21 @@ functions = [
 
 for i, f in enumerate(functions, 1):
     print(f"Q{i}: {sp.diff(f, x)}")
+
+
+
+# Partial derivatives
+import sympy as sp
+
+x, y = sp.symbols('x y')
+
+f = x**2 + 3*x*y + y**2
+
+# Partial derivative with respect to x
+fx = sp.diff(f, x)
+
+# Partial derivative with respect to y
+fy = sp.diff(f, y)
+
+print("Partial w.r.t x:", fx)
+print("Partial w.r.t y:", fy)
