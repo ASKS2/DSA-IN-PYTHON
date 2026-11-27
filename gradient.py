@@ -47,3 +47,28 @@ ax.set_zlabel("Z = f(x,y)")
 ax.set_title("3D Surface with Gradient Arrows")
 
 plt.show()
+
+
+
+# Gradient Descent for f(x) = x^2
+
+def gradient_descent(x, learning_rate, iterations):
+
+    for i in range(iterations):
+
+        gradient = 2 * x
+
+        x = x - learning_rate * gradient
+
+        print(f"Iteration {i+1}: x = {x:.6f}, f(x) = {x**2:.6f}")
+
+    return x
+
+
+result = gradient_descent(
+    x=10,
+    learning_rate=0.1,
+    iterations=20
+)
+
+print("Minimum point:", result)
